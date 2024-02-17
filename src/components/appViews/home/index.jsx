@@ -39,9 +39,9 @@ export default function Home() {
   const { data: page_9 } = useGetPeople(9);
 
   // a custom hook to get filters dropdowns options
-  const { data: films } = useGetFilms();
-  const { data: planets } = useGetPlanets();
-  const { data: species } = useGetSpecies();
+  const { data: films, isFetching: filmsIsFetching } = useGetFilms();
+  const { data: planets, isFetching: planetsIsFetching } = useGetPlanets();
+  const { data: species, isFetching: speciesIsFetching } = useGetSpecies();
 
   //a condition to toggle between search and filtering
   const displayedList =
@@ -107,6 +107,7 @@ export default function Home() {
         <Col xs={24} sm={24} md={12} lg={6}>
           <Select
             size="large"
+            loading={planetsIsFetching}
             allowClear
             fieldNames={{
               label: "name",
@@ -120,6 +121,7 @@ export default function Home() {
         <Col xs={24} sm={24} md={12} lg={6}>
           <Select
             size="large"
+            loading={filmsIsFetching}
             allowClear
             fieldNames={{
               label: "title",
@@ -133,6 +135,7 @@ export default function Home() {
         <Col xs={24} sm={24} md={12} lg={6}>
           <Select
             size="large"
+            loading={speciesIsFetching}
             allowClear
             fieldNames={{
               label: "name",

@@ -8,7 +8,10 @@ export default function Login() {
   const navigate = useNavigate();
   const onFinish = (values) => {
     if (values.userName === "test" && values.password === "test") {
-      localStorage.setItem("sw-token", "sw-token");
+      localStorage.setItem(
+        "sw-token",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdCIsInBhc3N3b3JkIjoidGVzdCJ9.3iftXG9EzUuRcsCykNfzF0_HrMW_eGPBCPDAnBla6zs"
+      );
       navigate("/home");
     } else {
       notification.error({ message: "Invalid credentials" });
